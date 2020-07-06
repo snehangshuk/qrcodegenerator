@@ -2,7 +2,7 @@
 import base64
 import os
 import base64
-from flask import Flask
+from flask import Flask, request
 from flask import render_template
 from pystrich.qrcode import QRCodeEncoder
 
@@ -12,13 +12,19 @@ app = Flask(__name__)
 app.config['QR_DIR'] = QR_DIR
 
 
-@app.route("/")
+@app.route('/')
+def index():
+    return render_template("index.html")
+
+
+@app.route('/', methods=['POST'])
 def qrcodegenerate():
-    encoder = QRCodeEncoder("Snehangshu Karmakar")
+    qrtext = request.form['text1']
+    encoder = QRCodeEncoder(qrtext)
     encoder.save(os.path.join(app.config['QR_DIR'], 'test.png'), 3)
     image_src = os.path.join(app.config['QR_DIR'], 'test.png')
     data_uri = base64.b64encode(open(image_src, 'rb').read()).decode('utf-8')
-    return render_template("hello.html", qr_img=data_uri)
+    return render_template("generate.html", qr_img=data_uri)
 
 
 if __name__ == "__main__":

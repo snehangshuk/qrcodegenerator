@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>QR Generator</head>
+<body>
+    <div id="container">
+        <form action="/" method="post">
+            <div id="space"></div>
+            <div class="row">
+                <input type="text" name="text1" placeholder="Enter text"/>
+                <input type="submit" name="submit" value="Generate"/>
+            </div>
+        </form>
+        <section class="row">
+            <section class="col-md-4 col-sm-6">
+                <img src="data:image/png;base64,{{ qr_img }}">
+            </section>
+        </section>
+        <footer class="footer">
+            <p>©snehangshu-akskube.info 2020</p>
+        </footer>
+    </div>
+</body>
+</html>

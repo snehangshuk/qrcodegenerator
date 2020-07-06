@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: python-qrcode
+  labels:
+    app: python-qrcode
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: python-qrcode
+  template:
+    metadata:
+      labels:
+        app: python-qrcode
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: python-qrcode
+        image: snehkacr.azurecr.io/python-qrcode:v1
+        ports:
+        - containerPort: 5000
