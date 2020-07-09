@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>QR Generator</head>
+<head>
+    <title>QR Generator</title>
+    <link href="{{ url_for('static', filename="bootstrap/css/theme/darkly/bootstrap.css") }}" rel="stylesheet">
+</head>
 <body>
     <div id="container">
         <form action="/" method="post">
             <div id="space"></div>
-            <div class="row">
-                <input type="text" name="text1" placeholder="Enter text"/>
-                <input type="submit" name="submit" value="Generate"/>
+            <div class="form-group">
+                <label class="col-form-label" for="inputDefault">Enter your text here</label>
+                <input type="text" class="form-control" placeholder="Enter text" name="text1" style="width: 300px;">
+                <input class="btn btn-primary"type="submit" name="submit" value="Generate"/>
             </div>
         </form>
         <footer class="footer">
-	        <p>Host Information: {{ host_name }},{{ host_ip }}</p>
-            <p>Copyright:snehangshu@akskube.info 2020</p>
+            <div class="alert alert-dismissible alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h4 class"alert-heading">Host Information</h4>
+                <p class="mb-0">{{ host_name }},{{ host_ip }}</p>
+            </div>
+            <span class="badge badge-pill badge-info">&#9400;snehangshu@akskube.info 2020</span>
         </footer>
     </div>
 </body>

@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 import base64
 import os
-import base64
 import socket
+
 from flask import Flask, request
 from flask import render_template
+from flask_bootstrap import Bootstrap
 from pystrich.qrcode import QRCodeEncoder
+
 
 QR_DIR = os.path.join('qrcode-gen-img')
 
