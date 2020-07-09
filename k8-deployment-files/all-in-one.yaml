@@ -21,7 +21,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: python-qrcode
-        image: snehangshuk/python-qrcode:v1
+        image: snehangshuk/python-qrcode:latest
         ports:
         - containerPort: 5000
       imagePullSecrets:
