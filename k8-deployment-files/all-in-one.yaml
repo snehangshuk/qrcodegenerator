@@ -21,9 +21,11 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: python-qrcode
-        image: snehkacr.azurecr.io/python-qrcode:v1
+        image: snehangshuk/python-qrcode:v1
         ports:
         - containerPort: 5000
+      imagePullSecrets:
+      - name: regcred
 ---
 apiVersion: v1
 kind: Service
