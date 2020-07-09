@@ -2,6 +2,7 @@
 import base64
 import os
 import base64
+import socket
 from flask import Flask, request
 from flask import render_template
 from pystrich.qrcode import QRCodeEncoder
@@ -14,7 +15,9 @@ app.config['QR_DIR'] = QR_DIR
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    hostname = socket.gethostname()
+    hostip = socket.gethostbyname(hostname)
+    return render_template("index.html", host_name=hostname, host_ip=hostip)
 
 
 @app.route('/', methods=['POST'])
